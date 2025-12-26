@@ -74,43 +74,43 @@ module.exports = userAgent => {
   const hints = {}
 
   if (brandList.length) {
-    hints['sec-ch-ua'] = brandList
+    hints['Sec-CH-UA'] = brandList
       .map(({ brand, version }) => `${quote(brand)};v=${quote(version)}`)
       .join(', ')
   }
 
-  hints['sec-ch-ua-mobile'] = isMobile ? '?1' : '?0'
+  hints['Sec-CH-UA-Mobile'] = isMobile ? '?1' : '?0'
 
   if (platform) {
-    hints['sec-ch-ua-platform'] = quote(platform)
+    hints['Sec-CH-UA-Platform'] = quote(platform)
   }
 
   if (platformVersion) {
-    hints['sec-ch-ua-platform-version'] = quote(platformVersion)
+    hints['Sec-CH-UA-Platform-Version'] = quote(platformVersion)
   }
 
   if (arch) {
-    hints['sec-ch-ua-arch'] = quote(arch)
+    hints['Sec-CH-UA-Arch'] = quote(arch)
   }
 
   if (bitness) {
-    hints['sec-ch-ua-bitness'] = quote(bitness)
+    hints['Sec-CH-UA-Bitness'] = quote(bitness)
   }
 
   if (model) {
-    hints['sec-ch-ua-model'] = quote(model)
+    hints['Sec-CH-UA-Model'] = quote(model)
   }
 
   if (browserFullVersion) {
-    hints['sec-ch-ua-full-version'] = quote(browserFullVersion)
+    hints['Sec-CH-UA-Full-Version'] = quote(browserFullVersion)
 
     if (officialBrand) {
-      hints['sec-ch-ua-full-version-list'] = `${quote(officialBrand)};v=${quote(browserFullVersion)}`
+      hints['Sec-CH-UA-Full-Version-List'] = `${quote(officialBrand)};v=${quote(browserFullVersion)}`
     }
   }
 
-  hints['sec-ch-ua-wow64'] = wow64
-  hints['sec-ch-ua-form-factors'] = formFactors
+  hints['Sec-CH-UA-WoW64'] = wow64
+  hints['Sec-CH-UA-Form-Factors'] = formFactors
 
   return hints
 }
